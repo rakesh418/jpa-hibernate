@@ -27,6 +27,7 @@ public class SpringDataJpaApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 //        createPerson();
         createPersons();
+        getPersonById(21);
     }
 
     private void createPerson(){
@@ -42,5 +43,10 @@ public class SpringDataJpaApplication implements CommandLineRunner {
                 new Person("Murugan", "m", "lex4@gmail.com", new Date()));
         Iterable<Person> personDbs = peopleManagementService.creatPersons(persons);
 //        System.out.println(personDb);
+    }
+
+    private void getPersonById(int id){
+        Person person = peopleManagementService.getPersonbyID(id);
+        System.out.println(person);
     }
 }

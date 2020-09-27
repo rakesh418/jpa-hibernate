@@ -1,10 +1,16 @@
 package com.lex418.springdatajpa.entities;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "person_table")
+@DynamicUpdate
+//@NamedQueries(value = {
+//        @NamedQuery(name = "Person.gesf")
+//})
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +28,10 @@ public class Person {
 
     @Column(name="creation_date")
     private Date creationDate;
+
+    public Person(){
+
+    }
 
     public Person(String firstName, String lastName, String email, Date creationDate) {
         super();

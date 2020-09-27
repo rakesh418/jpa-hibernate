@@ -24,4 +24,11 @@ public class PeopleManagementService {
         return personDbList;
     }
 
+    public Person getPersonbyID(int id) {
+        return peopleManagementDao.findById(id).orElse(null);
+    }
+
+    public Person getPersonByLastName(String lastName){
+        return peopleManagementDao.findByLastName(lastName);
+    }
 }
